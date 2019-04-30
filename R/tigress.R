@@ -107,7 +107,7 @@ tigress <-
 
     # Treat target genes one by one
     if (usemulticore > 1L) {
-      score <- mclapply(seq(ntargets),stabselonegene,mc.cores=usemulticore)
+      score <- mclapply(seq(ntargets),stabselonegene,mc.preschedule=TRUE,mc.cores=usemulticore,mc.allow.recursive=FALSE)
     } else {
       score <- lapply(seq(ntargets),stabselonegene)
     }
